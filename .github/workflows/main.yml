@@ -41,5 +41,20 @@ jobs:
           echo ${{ secrets.DOCKERHUBE }} | docker login --username ausaf009 --password-stdin
           docker push ausaf009/node-app:${{ env.GITHUB_BRANCH }}
 
+          
+      - name: Update manifest file
+        run: |
+          # Assuming you have a manifest file named k8s.yaml
+          git config --global user.email "ausafansari.wohlig@gmail.com"
+          git config --global user.name  "ausaf-devops"
+          yq eval '.spec.template.spec.containers[0].image = "ausaf009/node-app:${{ env.GITHUB_BRANCH }}"' -i deployment/manifest.yml
+
+          git add .
+
+          git commit -m "updating newer image"
+          git push --set-upstream origin master  
+
+
+
 
 
