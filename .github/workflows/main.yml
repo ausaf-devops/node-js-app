@@ -27,7 +27,7 @@ jobs:
         run: |
           docker buildx create --use
           docker buildx inspect default --bootstrap
-          docker buildx build --file Dockerfile -t ausaf009/nodejs-app-image:$GITHUB_REF_NAME-$GITHUB_SHA --load .
+          docker buildx build --file Dockerfile -t ausaf009/node-app:$GITHUB_REF_NAME-$GITHUB_SHA --load .
           docker images
 
       - name: Set up Kubectl
@@ -39,7 +39,7 @@ jobs:
       - name: Push Docker image to Docker Hub
         run: |
           echo ${{ secrets.DOCKERHUBE }} | docker login --username ausaf009 --password-stdin
-          docker push ausaf009/nodejs-app-image:${{ env.GITHUB_BRANCH }}
+          docker push ausaf009/node-app:${{ env.GITHUB_BRANCH }}
 
 
 
