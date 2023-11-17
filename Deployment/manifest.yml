@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: node-app
-          image: ausaf009/node-app:master-254a62e4210fa55689131864465ef0f43b411458
+          image: ausaf009/node-app:master-3bdda053533df003f2dc073eace1426fe5d2f4bf
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
