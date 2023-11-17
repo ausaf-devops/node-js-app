@@ -39,7 +39,6 @@ jobs:
       - name: Push Docker image to Docker Hub
         run: |
           echo ${{ secrets.DOCKERHUBE }} | docker login --username ausaf009 --password-stdin
-          docker pull ausaf009/node-app:${{ env.GITHUB_BRANCH }}
           docker push ausaf009/node-app:${{ env.GITHUB_BRANCH }}
 
           
