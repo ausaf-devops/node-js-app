@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-deployment
+  name: Deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-deployment
+      app: Deployment
   template:
     metadata:
       labels:
-        app: my-deployment
+        app: Deployment
     spec:
       containers:
         - name: node-app
